@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #e5edf5;;
+}
+
+.submitForm {
+  margin: 200px;
+  background-color: black;
+  border-radius: 10px;
+  height: auto;
+  width: 700px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  color: #fff;
+}
+
+
+placeholder{
+  text-align: center;
+}
+
+.select, input {
+  width: 600px;
+  height: 55px;
+  border: 1px solid rgb(92, 77, 131);
+  border-radius: 10px;
+  padding: 5px;
+  color: #f0e7e7;
+  background-color: rgb(79, 71, 98);
+  margin-top: 20px;
+}
+
+
+.select option {
+  color: #f0e7e7;
+  background-color: rgb(92, 77, 131);
+  cursor: pointer;
+}
+
+
+.select option:checked {
+  color: #f0e7e7;
+  background-color: #272323;
+}
+
+
+.submitInput{
+  background-color: #007bff;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+p {
+  color: red;
+  font-size: 14px;
+}
+
+h1{
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+errors{
+  color: red;
+}
+
+#acceptTerms{
+height: 20px;
+width: 20px;
+margin: 5px;
+}
+.acceptTerms-input{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
+}
