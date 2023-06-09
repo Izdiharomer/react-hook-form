@@ -16,35 +16,53 @@ export default function Home() {
 
       <h1>Register</h1>
 
-      {/* first name and last name inputs: required, must be more that 3 letters and less than 20 letter, accept only letters */}
+      {/* first name and last name inputs: required, must be more than 3 letters and less than 20 letter, accept only letters */}
       <input
-        {...register("firstName", {
-          required: true,
-          maxLength: 20,
-          minLength: 3,
-          pattern: /^[A-Za-z]+$/i
-        })}
-        placeholder="First Name"
-        aria-invalid={errors.firstName ? "true" : "false"}
-      />
-      {errors.firstName?.type === 'required' && (
-        <p role="alert">First name is required</p>
-      )}
+       {...register("firstName", {
+         required: true,
+         maxLength: {
+          value: 20,
+          message: "Please enter a valid name (maximum 20 characters)"
+         },
+         minLength: {
+         value: 3,
+         message: "Please enter a valid name (minimum 3 characters)"},
+         pattern: {
+         value: /^[A-Za-z]+$/i,
+         message: "Please enter a valid name (must not contain digits and special characters)"}})}
 
-      
-      <input
-        {...register("lastName", {
-          required: true,
-          maxLength: 20,
-          minLength: 3,
-          pattern: /^[A-Za-z]+$/i
-        })}
-        placeholder="Last Name"
-        aria-invalid={errors.lastName ? "true" : "false"}
-      />
-      {errors.lastName?.type === 'required' && (
-        <p role="alert">Last name is required</p>
-      )}
+         placeholder="First Name"
+         aria-invalid={errors.firstName ? "true" : "false"}/>
+         {errors.firstName?.type === 'required' && (
+         <p role="alert">First name is required</p>)}
+         {errors.firstName?.message && (
+        <p role="alert">{errors.firstName.message}</p>)}
+
+<input
+  {...register("lastName", {
+    required: "Last name is required",
+    maxLength: {
+      value: 20,
+      message: "Please enter a valid name (maximum 20 characters)"
+    },
+    minLength: {
+      value: 3,
+      message: "Please enter a valid name (minimum 3 characters)"
+    },
+    pattern: {
+      value: /^[A-Za-z]+$/i,
+      message: "Please enter a valid name (must not contain digits and special characters)"
+    }
+  })}
+  placeholder="Last Name"
+  aria-invalid={errors.lastName ? "true" : "false"}
+/>
+{errors.lastName && (
+  <p role="alert">{errors.lastName.message}</p>
+)}
+
+
+
 
       {/* gender select: required */}
  
@@ -126,12 +144,11 @@ export default function Home() {
           }
         })}
       />
+      {errors.password && <span >{errors.password.message}</span>}
 
-
-     
-      {errors.password && <span style={{ color: 'red', fontSize: '14px' }}>{errors.password.message}</span>}
 
       {/* accept terms checkbox: required */}
+
       <div className="acceptTerms-input">
         <input
         type="checkbox"
@@ -142,6 +159,7 @@ export default function Home() {
         </div>  
         {errors.acceptTerms && (
         <p role="alert">You must accept the terms and conditions</p>)}  
+        
         
       {/* After submitting, it gives an alert with all data that was filled */}
 

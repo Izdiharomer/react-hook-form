@@ -34,11 +34,6 @@ body {
   color: #fff;
 }
 
-
-placeholder{
-  text-align: center;
-}
-
 .select, input {
   width: 600px;
   height: 55px;
@@ -71,10 +66,7 @@ placeholder{
   letter-spacing: 2px;
 }
 
-p {
-  color: red;
-  font-size: 14px;
-}
+
 
 h1{
   font-size: 22px;
@@ -85,9 +77,12 @@ h1{
   margin-top: 15px;
 }
 
-errors{
+errors, p, span{
   color: red;
+  font-size: 16px;
 }
+
+
 
 #acceptTerms{
 height: 20px;
